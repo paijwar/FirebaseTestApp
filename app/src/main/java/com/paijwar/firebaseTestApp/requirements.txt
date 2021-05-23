@@ -1,0 +1,9 @@
+Simple Android App
+1 - Login with Firebase
+2 - email id and password
+3 - signup, signin
+4 - landing page after signin
+
+//Android Studio
+//Chrome browser/browser
+//java installed
