@@ -4,6 +4,4 @@ Simple Android App
 3 - signup, signin
 4 - landing page after signin
 
-//Android Studio
-//Chrome browser/browser
-//java installed
+

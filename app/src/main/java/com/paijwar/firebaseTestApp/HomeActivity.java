@@ -2,6 +2,7 @@ package com.paijwar.firebaseTestApp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -18,5 +19,10 @@ public class HomeActivity extends AppCompatActivity {
     public void onClickLogout(View view) {
         FirebaseAuth.getInstance().signOut();
         finish();
+    }
+
+    public void onClickProfile(View view) {
+        //launch profile activity
+        startActivity(new Intent(this, ProfileActivity.class));
     }
 }
