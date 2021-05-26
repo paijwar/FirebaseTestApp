@@ -21,6 +21,7 @@ import java.util.TimerTask;
 public class SplashActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     final int RC_SIGN_IN = 101;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,21 +37,10 @@ public class SplashActivity extends AppCompatActivity {
 //                        Toast.makeText(SplashActivity.this,"Timeout", Toast.LENGTH_LONG).show();
 //                        finish();
 
-                        if(mAuth.getCurrentUser() == null){
-                            //showing login option
-                            List<AuthUI.IdpConfig> providers = Arrays.asList(
-                                    new AuthUI.IdpConfig.EmailBuilder().build());
-
-                            // Create and launch sign-in intent
-                            startActivityForResult(
-                                    AuthUI.getInstance()
-                                            .createSignInIntentBuilder()
-                                            .setAvailableProviders(providers)
-                                            .build(),
-                                    RC_SIGN_IN);
-                            //theengineeringmanager
-                        }
-                        else {
+                        if (mAuth.getCurrentUser() == null) {
+                            startActivity(new Intent(SplashActivity.this, SignInOrSignUpActivity.class));
+                            finish();
+                        } else {
                             // after login screen
                             showHomeAfterLogin();
                         }
@@ -69,15 +59,16 @@ public class SplashActivity extends AppCompatActivity {
 
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
+
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 showHomeAfterLogin();
             } else {
-                Toast.makeText(this,"Not able to login",Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Not able to login", Toast.LENGTH_LONG).show();
             }
         }
     }
 
-    void showHomeAfterLogin(){
+    void showHomeAfterLogin() {
         startActivity(new Intent(SplashActivity.this, HomeActivity.class));
         finish();
     }

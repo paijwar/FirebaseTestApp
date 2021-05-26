@@ -11,7 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FirebaseTestApp">
-        <activity android:name=".ProfileActivity" android:parentActivityName=".HomeActivity"></activity>
+        <activity android:name=".SignInOrSignUpActivity"></activity>
+        <activity android:name=".SignupActivity" />
+        <activity
+            android:name=".ProfileActivity"
+            android:parentActivityName=".HomeActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
